@@ -3,7 +3,7 @@
 ## users テーブル
 | Column      | Type   | Options     |
 | ----------  | ------ | ----------- |
-| nick-name   | string | null: false |
+| nick_name   | string | null: false |
 | email       | string | null: false |
 | password    | string | null: false |
 | first_name1 | string | null: false |
@@ -56,12 +56,12 @@
 | prefecture_id    | integer    | null: false                    |
 | municipalities   | string     | null: false                    |
 | address          | string     | null: false                    |
-| building-name    | string     |                                |
+| building_name    | string     |                                |
 | phone_number     | string     | null: false                    |
-| user             | references | null: false, foreign_key: true |
+| older             | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
+- belongs_to :older
 - has_one :item
 
 ## orders テーブル
@@ -73,3 +73,4 @@
 ### Association
 - belongs_to :user
 - has_one :purchases
+- has_one :item
