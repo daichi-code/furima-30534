@@ -21,13 +21,13 @@
 ## items テーブル
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| title      | string     | null: false, foreign_key: true |
-| text       | text       | null: false, foreign_key: true |
-| price      | integer    | null: false, foreign_key: true |
-| condition  | decimal    | null: false, foreign_key: true |
-| shipping   | decimal    | null: false, foreign_key: true |
-| prefecture | decimal    | null: false, foreign_key: true |
-| day        | date       | null: false, foreign_key: true |
+| title      | string     | null: false                    |
+| category   | integer    | null: false                    |
+| price      | integer    | null: false                    |
+| condition  | integer    | null: false                    |
+| shipping   | integer    | null: false                    |
+| prefecture | integer    | null: false                    |
+| day        | integer    | null: false                    |
 | user       | references | null: false, foreign_key: true |
 
 ### Association
@@ -37,7 +37,7 @@
 
 ## comments テーブル
 | Column    | Type       | Options                        |
-| ------    | ---------- | ------------------------------ |
+| --------- | ---------- | ------------------------------ |
 | text      | text       | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 | item      | references | null: false, foreign_key: true |
@@ -50,17 +50,26 @@
 ## purchases テーブル
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| card-number      | integer    | null: false, foreign_key: true |
-| expiration-month | integer    | null: false, foreign_key: true |
-| expiration-day   | integer    | null: false, foreign_key: true |
-| security-code    | integer    | null: false, foreign_key: true |
-| postal-code      | integer    | null: false, foreign_key: true |
-| prefecture       | decimal    | null: false, foreign_key: true |
-| municipalities   | string     | null: false, foreign_key: true |
-| address          | string     | null: false, foreign_key: true |
-| building-name    | string     | null: false, foreign_key: true |
-| phone-number     | integer    | null: false, foreign_key: true |
+| postal-code      | string     | null: false                    |
+| prefecture       | integer    | null: false                    |
+| municipalities   | string     | null: false                    |
+| address          | string     | null: false                    |
+| building-name    | string     | null: false                    |
+| phone-number     | string     | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
+
+
+## orders テーブル
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| item-number      | string     | null: false                    |
+| day              | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
+| purchase         | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- has_one :purchases
