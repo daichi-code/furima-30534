@@ -34,7 +34,7 @@
 ### Association
 - belongs_to :user
 - has_many :comments
-- has_one :purchase
+- has_one :order
 
 
 ## comments テーブル
@@ -73,4 +73,4 @@
 ### Association
 - belongs_to :user
 - has_one :purchase
-- has_one :item
+- belongs_to :item
