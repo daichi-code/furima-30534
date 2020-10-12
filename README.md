@@ -58,11 +58,11 @@
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
 | phone_number     | string     | null: false                    |
-| older             | references | null: false, foreign_key: true |
+| order            | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :older
-- has_one :item
+- belongs_to :order
+
 
 ## orders テーブル
 | Column | Type       | Options                        |
@@ -72,5 +72,5 @@
 
 ### Association
 - belongs_to :user
-- has_one :purchases
+- has_one :purchase
 - has_one :item
