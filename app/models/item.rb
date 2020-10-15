@@ -10,14 +10,18 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
-  validates :title, presence: true
-  validates :text, presence: true
-  validates :category_id, presence: true
-  validates :condition_id, presence: true
-  validates :shipping_id, presence: true
-  validates :prefecture_id, presence: true
-  validates :day_id, presence: true
-  validates :image, presence: true
+
+  with_options presence: true do
+    validates :title
+    validates :text
+    validates :category_id
+    validates :condition_id
+    validates :shipping_id
+    validates :prefecture_id
+    validates :day_id
+    validates :image
+  end
+
 
   validates :category_id, numericality: { other_than: 1 }
   validates :day_id, numericality: { other_than: 1 }
