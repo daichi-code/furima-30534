@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit]
 
   def index
-    @items = Item.all
   end
 
   def new
