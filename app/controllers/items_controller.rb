@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit]
 
   def index
-    @items = Item.all.order("id DESC")
+    @items = Item.all.order('id DESC')
   end
 
   def new
@@ -20,7 +20,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
     @item = Item.find(params[:id])
+    @price = @item.price
   end
 
   private

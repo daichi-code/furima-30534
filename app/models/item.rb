@@ -10,7 +10,6 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
-
   with_options presence: true do
     validates :title
     validates :text
@@ -22,7 +21,7 @@ class Item < ApplicationRecord
     validates :image
   end
 
-  with_options numericality:{ other_than: 1 } do
+  with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :day_id
     validates :condition_id
