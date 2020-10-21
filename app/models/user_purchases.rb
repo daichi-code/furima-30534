@@ -1,14 +1,13 @@
 class UserPurchases
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :municipalities, :address, :phone_number, :building_name, :token , :user_id, :item_id
-
+  attr_accessor :postal_code, :prefecture_id, :municipalities, :address, :phone_number, :building_name, :token, :user_id, :item_id
 
   with_options presence: true do
-  validates :postal_code, format: {with: /\A^\d{3}[-]\d{4}$\z/ }
-  validates :municipalities
-  validates :address
-  validates :phone_number, format: {with: /\A^\d{10}$|^\d{11}$\z/ }
-  validates :token
+    validates :postal_code, format: { with: /\A^\d{3}[-]\d{4}$\z/ }
+    validates :municipalities
+    validates :address
+    validates :phone_number, format: { with: /\A^\d{10}$|^\d{11}$\z/ }
+    validates :token
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
