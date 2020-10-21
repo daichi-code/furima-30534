@@ -8,10 +8,10 @@ class UserPurchases
     validates :address
     validates :phone_number, format: { with: /\A^\d{10}$|^\d{11}$\z/ }
     validates :token
+    validates :prefecture_id, numericality: { other_than: 1 }
   end
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  validates :prefecture_id, numericality: { other_than: 1 }
+
 
   def save
     @order = Order.create(user_id: user_id, item_id: item_id)

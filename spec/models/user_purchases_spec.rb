@@ -28,6 +28,13 @@ RSpec.describe UserPurchases, type: :model do
       expect(@purchase.errors.full_messages).to include('Prefecture must be other than 1')
     end
 
+    it '県が空では登録できない' do
+      @purchase.prefecture_id = nil
+      @purchase.valid?
+      expect(@purchase.errors.full_messages).to include("Prefecture is not a number")
+    end
+
+
     it '市町村が空では登録できない' do
       @purchase.municipalities = nil
       @purchase.valid?
