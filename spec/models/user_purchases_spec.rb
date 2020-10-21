@@ -22,10 +22,10 @@ RSpec.describe UserPurchases, type: :model do
       expect(@purchase.errors.full_messages).to include("Postal code can't be blank")
     end
 
-    it '県が空では登録できない' do
-      @purchase.prefecture_id = nil
+    it '県が1では登録できない' do
+      @purchase.prefecture_id = 1
       @purchase.valid?
-      expect(@purchase.errors.full_messages).to include('Prefecture is not a number')
+      expect(@purchase.errors.full_messages).to include('Prefecture must be other than 1')
     end
 
     it '市町村が空では登録できない' do
